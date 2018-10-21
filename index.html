@@ -20,8 +20,11 @@
 				//sets x-axis scale
 				var x = d3.scale.linear().range([0,width]);
 
-				//sets svg's width
+				//sets svg's width; supposes svg already exists as class at index.html as its's selected by d3
+				//at attr(), 2nd parameter refers to pre-set width at draw()
 				var chart = d3.select(".chart").attr("width",width);
+
+				x.domain([0,d3.max(data, function(d){return d.value;})]);
 			}
 
 		</script>
