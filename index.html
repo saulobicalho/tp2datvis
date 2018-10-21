@@ -24,6 +24,8 @@
 				//at attr(), 2nd parameter refers to pre-set width at draw()
 				var chart = d3.select(".chart").attr("width",width);
 
+				//obs: therefore x was previous defined using some chained methods, it refers to a scale. So a definiton
+				//to domain is still desired, and is done above
 				x.domain([0,d3.max(data, function(d){return d.value;})]);
 			}
 
