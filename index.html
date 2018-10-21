@@ -14,6 +14,7 @@
 			function draw(data){
 
 				//defining some constants
+				//Obs: barHeigth corresponds to the heigth of a single bar
 				var width =420,
 					barHeigth =20;
 
@@ -31,6 +32,9 @@
 				//domain and range f. changes some internal properties of scale obj so they discard the necessity of being
 				//stored as variables
 				x.domain([0,d3.max(data, function(d){return d.value;})]);
+
+				//setting charts's heigth. It's found by multp. the single bar's heigth by number of data itens
+				chart.attr("heigth",barHeigth * data.length);
 			}
 
 		</script>
