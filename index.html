@@ -28,6 +28,8 @@
 				//to domain is still desired, and is done above
 				//obs2: domain is set as a range from 0 to the maximum value present at data. This last value is found by
 				//executing the anon. f above, where d is a var. used to traverse all the data values
+				//domain and range f. changes some internal properties of scale obj so they discard the necessity of being
+				//stored as variables
 				x.domain([0,d3.max(data, function(d){return d.value;})]);
 			}
 
