@@ -35,6 +35,14 @@
 
 				//setting charts's heigth. It's found by multp. the single bar's heigth by number of data itens
 				chart.attr("heigth",barHeigth * data.length);
+
+				//binding data to svg element
+				//data() will bind all data to each group element of svg (each of one will be represented by "g")
+				var bar = chart.selectAll("g")
+					.data(data)
+					.enter().append("g")
+					.attr("transform",function(d,i){return "translate(0," + i * barHeigth + ")"});
+
 			}
 
 		</script>
