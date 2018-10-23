@@ -38,6 +38,7 @@
 
 				//binding data to svg element
 				//data() will bind all data to each group element of svg (each of one will be represented by "g")
+				//after the code above bar will be a bunch of g tags wich passes by some transformation
 				var bar = chart.selectAll("g")
 					.data(data)
 					.enter().append("g")
