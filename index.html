@@ -16,8 +16,8 @@
 
 		//definindo os dados
 		var dataset = [
-			[5, 20,"SP"], [80, 90,"MG"], [50, 50,"RJ"], [100, 33,"AC"], [30, 95,"SC"],
-			[10, 12,"MA"], [75, 44,"ES"], [25, 67,"TO"], [85, 21,"RR"], [20, 88,"BA"]
+			[5, 20,"SP",86680], [80, 90,"MG",78838], [50, 50,"RJ",22383], [100, 33,"AC",2310], [30, 95,"SC",17671],
+			[10, 12,"MA",18537], [75, 44,"ES",10494], [25, 67,"TO",7478], [85, 21,"RR",1789], [20, 88,"BA",36814]
 			];
 
 		//largura e altura
@@ -34,7 +34,6 @@
 			.attr("height", h)
 			.attr("font-family", "sans-serif")
 			.attr("font-size", "11px")
-			.attr("fill", "black");
 
 
 		//sets x-axis scale
@@ -46,6 +45,15 @@
 		var yScale = d3.scaleLinear()
 			.domain([0, 100])
 			.range([h-padding, padding]);
+
+		//define escala do raio
+		var rScale = d3.scaleLinear()
+			.domain([0, d3.max(dataset, function(d) { return d[3]; })])
+			.range([2, 10]);
+			.attr("r", function(d) {
+			return rScale(d[3]);
+		});
+
 
 		//adicionando circulos
 		var circles = svg.selectAll("circle")
@@ -62,20 +70,31 @@
 			})
 			.attr("r", function(d) {
 			return 5;
-		});
+			})
+			.attr("fill", "black");
 
 		//adicionando rotulos
 		svg.selectAll("text")
 			.data(dataset)
 			.enter()
-			.append("text");
+			.append("text")
+			.text(function(d) {
+			return d[2];
+			})
+			.attr("x", function(d) {
+				return xScale(d[0])
+				})
+				.attr("y", function(d) {
+				return yScale(d[1]);
+			})
+			.attr("font-family", "sans-serif")
+			.attr("font-size", "11px")
+			.attr("fill", "black");
 
 			//part3: logic with draw f. and others
 			//obs: draw() is a callback f. wich executes just after loading data files at part5
 		//	function draw(data){
 
-
-//				var x = d3.scale.linear().range([0,width]);
 
 				//sets svg's width; supposes svg already exists as class at index.html as its's selected by d3
 				//at attr(), 2nd parameter refers to pre-set width at draw()
@@ -87,7 +106,6 @@
 				//executing the anon. f above, where d is a var. used to traverse all the data values
 				//domain and range f. changes some internal properties of scale obj so they discard the necessity of being
 				//stored as variables
-	//			x.domain([0,d3.max(data, function(d){return d.value;})]);
 
 				//setting charts's heigth. It's found by multp. the single bar's heigth by number of data itens
 //				chart.attr("heigth",barHeigth * data.length);
