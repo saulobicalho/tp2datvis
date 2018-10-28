@@ -4,6 +4,11 @@
 		<meta charset="utf-8">
 		<title>Grafico Dispersão</title>
 		<script type = "text/javascript" src="d3/d3.v5.min.js"></script>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
 	</head>
 	<body>
 
@@ -23,7 +28,8 @@
 			var svg = d3.select("body")
 			.append("svg")
 			.attr("width", w)
-			.attr("height", h);
+			.attr("height", h)
+			.attr("fill", "yellow");
 
 			//adicionando circulos
 			var circles = svg.selectAll("circle")
