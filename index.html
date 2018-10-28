@@ -16,8 +16,8 @@
 
 		//definindo os dados
 		var dataset = [
-			[5, 20], [80, 90], [50, 50], [100, 33], [30, 95],
-			[10, 12], [75, 44], [25, 67], [85, 21], [20, 88]
+			[5, 20,"SP"], [80, 90,"MG"], [50, 50,"RJ"], [100, 33,"AC"], [30, 95,"SC"],
+			[10, 12,"MA"], [75, 44,"ES"], [25, 67,"TO"], [85, 21,"RR"], [20, 88,"BA"]
 			];
 
 		//largura e altura
@@ -63,6 +63,12 @@
 			.attr("r", function(d) {
 			return 5;
 		});
+
+		//adicionando rotulos
+		svg.selectAll("text")
+			.data(dataset)
+			.enter()
+			.append("text");
 
 			//part3: logic with draw f. and others
 			//obs: draw() is a callback f. wich executes just after loading data files at part5
