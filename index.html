@@ -4,11 +4,15 @@
 		<meta charset="utf-8">
 		<title>Grafico Dispersão</title>
 		<script type = "text/javascript" src="d3/d3.v5.min.js"></script>
+		<script src="css/estilo.css">
+
+		</script>
 		<p></p>
 		<p></p>
 		<p></p>
 		<p></p>
 		<p></p>
+
 	</head>
 	<body>
 
@@ -97,6 +101,7 @@
 
 		//constroi o eixo x
 		svg.append("g")
+			.attr("class", "axis") //Assign "axis" class
 			.call(xAxis);
 
 			//part3: logic with draw f. and others
