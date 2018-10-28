@@ -16,16 +16,23 @@
 
 		//definindo os dados
 		var dataset = [
-			[5, 20,"SP",86680], [80, 90,"MG",78838], [50, 50,"RJ",22383], [100, 33,"AC",2310], [30, 95,"SC",17671],
-			[10, 12,"MA",18537], [75, 44,"ES",10494], [25, 67,"TO",7478], [85, 21,"RR",1789], [20, 88,"BA",36814]
+			[5, 20,"SP",86680,"SE"], [80, 90,"MG",78838,"SE"], [50, 50,"RJ",22383,"SE"], [100, 33,"AC",2310,"NE"], [30, 95,"SC",17671,"S"],
+			[10, 12,"MA",18537,"N"], [75, 44,"ES",10494,"SE"], [25, 67,"TO",7478,"CO"], [85, 21,"RR",1789,"NO"], [20, 88,"BA",36814,"NE"]
 			];
 
 		//largura e altura
-		var w = 500;
+		var w = 1000;
 		var h = 200;
 
 		//padding
 		var padding = 20;
+
+		//cores das regioes
+		var "S" = "red";
+		var "N" = "green";
+		var "NE" = "yellow"
+		var "SE" = "blue";
+		var "CO" = "orange";
 
 		//criando o elemento svg
 		var svg = d3.select("body")
@@ -49,10 +56,7 @@
 		//define escala do raio
 		var rScale = d3.scaleLinear()
 			.domain([0, d3.max(dataset, function(d) { return d[3]; })])
-			.range([2, 10]);
-			.attr("r", function(d) {
-			return rScale(d[3]);
-		});
+			.range([10, 30]);
 
 
 		//adicionando circulos
@@ -69,7 +73,7 @@
 			return yScale(d[1]);
 			})
 			.attr("r", function(d) {
-			return 5;
+			return rScale(d[3]);
 			})
 			.attr("fill", "black");
 
