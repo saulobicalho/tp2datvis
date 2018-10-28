@@ -7,47 +7,46 @@
 		<script type = "text/javascript" src="d3/d3.v5.min.js"></script>
 	</head>
 	<body>
-		//part 2: providing some style to charts
-	<style>	</style>
-	<script>
-		//part3: logic with draw f. and others
-		//obs: draw() is a callback f. wich executes just after loading data files at part5
-		function draw(data){
 
-			//defining some constants
-			//Obs: barHeigth corresponds to the heigth of a single bar
-			var width =420,
-				barHeigth =20;
+		<script>
+			//part3: logic with draw f. and others
+			//obs: draw() is a callback f. wich executes just after loading data files at part5
+			function draw(data){
 
-			//sets x-axis scale
-			var x = d3.scale.linear().range([0,width]);
+				//defining some constants
+				//Obs: barHeigth corresponds to the heigth of a single bar
+				var width =420,
+					barHeigth =20;
 
-			//sets svg's width; supposes svg already exists as class at index.html as its's selected by d3
-			//at attr(), 2nd parameter refers to pre-set width at draw()
-			var chart = d3.select(".chart").attr("width",width);
+				//sets x-axis scale
+				var x = d3.scale.linear().range([0,width]);
 
-			//obs1: therefore x was previous defined using some chained methods, it refers to a scale. So a definiton
-			//to domain is still desired, and is done above
-			//obs2: domain is set as a range from 0 to the maximum value present at data. This last value is found by
-			//executing the anon. f above, where d is a var. used to traverse all the data values
-			//domain and range f. changes some internal properties of scale obj so they discard the necessity of being
-			//stored as variables
-			x.domain([0,d3.max(data, function(d){return d.value;})]);
+				//sets svg's width; supposes svg already exists as class at index.html as its's selected by d3
+				//at attr(), 2nd parameter refers to pre-set width at draw()
+				var chart = d3.select(".chart").attr("width",width);
 
-			//setting charts's heigth. It's found by multp. the single bar's heigth by number of data itens
-			chart.attr("heigth",barHeigth * data.length);
+				//obs1: therefore x was previous defined using some chained methods, it refers to a scale. So a definiton
+				//to domain is still desired, and is done above
+				//obs2: domain is set as a range from 0 to the maximum value present at data. This last value is found by
+				//executing the anon. f above, where d is a var. used to traverse all the data values
+				//domain and range f. changes some internal properties of scale obj so they discard the necessity of being
+				//stored as variables
+				x.domain([0,d3.max(data, function(d){return d.value;})]);
 
-			//binding data to svg element
-			//data() will bind all data to each group element of svg (each of one will be represented by "g")
-			//after the code above bar will be a bunch of g tags wich passes by some transformation
-			var bar = chart.selectAll("g")
-				.data(data)
-				.enter().append("g")
-				.attr("transform",function(d,i){return "translate(0," + i * barHeigth + ")"});
+				//setting charts's heigth. It's found by multp. the single bar's heigth by number of data itens
+				chart.attr("heigth",barHeigth * data.length);
 
-		}
+				//binding data to svg element
+				//data() will bind all data to each group element of svg (each of one will be represented by "g")
+				//after the code above bar will be a bunch of g tags wich passes by some transformation
+				var bar = chart.selectAll("g")
+					.data(data)
+					.enter().append("g")
+					.attr("transform",function(d,i){return "translate(0," + i * barHeigth + ")"});
 
-	</script>
+			}
+
+		</script>
 
 
 		//part4: using svg
