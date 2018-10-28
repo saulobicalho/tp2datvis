@@ -9,21 +9,36 @@
 
 		<script type="text/javascript">
 
+		//definindo os dados
 		var dataset = [
 			[5, 20], [80, 90], [50, 50], [100, 33], [30, 95],
 			[10, 12], [75, 44], [25, 67], [85, 21], [20, 88]
 			];
 
-			//Width and height
-			var w = 500;
-			var h = 500;
+		//largura e altura
+		var w = 500;
+		var h = 500;
 
-			//Create SVG element
+			//criando o elemento svg
 			var svg = d3.select("body")
 			.append("svg")
 			.attr("width", w)
 			.attr("height", h);
 
+			//adicionando circulos
+			var circles = svg.selectAll("circle")
+			.data(dataset)
+			.enter()
+			.append("circle");
+
+			//definindo propriedades dos circulos
+			circles.attr("cx", function(d, i) {
+			return (i * 50) + 25;
+			})
+			.attr("cy", h/2)
+			.attr("r", function(d) {
+			return d;
+			});
 
 			//part3: logic with draw f. and others
 			//obs: draw() is a callback f. wich executes just after loading data files at part5
