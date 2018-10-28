@@ -52,9 +52,8 @@
 			.range([10, 40]);
 
 		//define eixo x
-		var xAxis = d3.svg.axis()
-			.scale(xScale)
-			.orient("bottom");
+		var xAxis = d3.axisBottom()
+			.scale(xScale);
 
 		//adicionando circulos
 		var circles = svg.selectAll("circle")
@@ -94,6 +93,11 @@
 			.attr("font-family", "sans-serif")
 			.attr("font-size", "11px")
 			.attr("fill", "white");
+
+
+		//constroi o eixo x
+		svg.append("g")
+			.call(xAxis);
 
 			//part3: logic with draw f. and others
 			//obs: draw() is a callback f. wich executes just after loading data files at part5
