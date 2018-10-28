@@ -24,6 +24,9 @@
 		var w = 500;
 		var h = 200;
 
+		//padding
+		var padding = 20;
+
 		//criando o elemento svg
 		var svg = d3.select("body")
 			.append("svg")
@@ -37,12 +40,12 @@
 		//sets x-axis scale
 		var xScale = d3.scaleLinear()
 			.domain([0, 100])
-			.range([0, w]);
+			.range([padding, w-padding]);
 
 		//sets y-axis scale
 		var yScale = d3.scaleLinear()
 			.domain([0, 100])
-			.range([h, 0]);
+			.range([h-padding, padding]);
 
 		//adicionando circulos
 		var circles = svg.selectAll("circle")
