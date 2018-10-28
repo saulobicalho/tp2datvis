@@ -14,6 +14,17 @@
 			[10, 12], [75, 44], [25, 67], [85, 21], [20, 88]
 			];
 
+			//Width and height
+			var w = 500;
+			var h = 500;
+
+			//Create SVG element
+			var svg = d3.select("body")
+			.append("svg")
+			.attr("width", w)
+			.attr("height", h);
+
+
 			//part3: logic with draw f. and others
 			//obs: draw() is a callback f. wich executes just after loading data files at part5
 			function draw(data){
