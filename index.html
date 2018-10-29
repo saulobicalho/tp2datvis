@@ -62,8 +62,9 @@
 			.range([10, 40]);
 
 		//define eixo x
-		var xAxis = d3.axisBottom()
-			.scale(xScale);
+		var xAxis = d3.svg.axis()
+			.scale(xScale)
+			.orient("bottom");
 
 			//define eixo y
 			var xAxis = d3.axisLeft()
