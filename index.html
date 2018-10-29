@@ -33,7 +33,7 @@
 		//carrega o arquivo json
 		d3.json("candidatos.json", function(json) {
 			console.log(json); //Log output to console
-			dataset = data;
+			dataset = json;
 		});
 
 		//largura e altura
@@ -66,7 +66,7 @@
 
 		//define escala do raio
 		var rScale = d3.scale.linear()
-			.domain([0, d3.max(dataset, function(d) { return d[3]; })])
+			.domain([0, d3.max(dataset, function(d) { return d.total; })])
 			.range([10, 40]);
 
 		//define eixo x
