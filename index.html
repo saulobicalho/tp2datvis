@@ -113,8 +113,8 @@
 
 			//constroi o eixo x
 			svg.append("g")
-		.attr("transform", "translate(0," + height + ")")
-		.call(d3.axisBottom(x));
+			.attr("class", "axis") //Assign "axis" class
+			.call(xAxis);
 
 
 
