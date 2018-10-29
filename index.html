@@ -24,14 +24,16 @@
 		<script type="text/javascript">
 
 		//definindo os dados
-		var dataset = [
-			[0, 0,"SP",86680,"blue"], [.80, .90,"MG",78838,"blue"], [.50, .50,"RJ",22383,"blue"], [1.00, .33,"AC",2310,"yellow"], [.30, .95,"SC",17671,"red"],
-			[.10, .12,"MA",18537,"green"], [.75, .44,"ES",10494,"blue"], [.25, .67,"TO",7478,"brown"], [.85, .21,"RR",1789,"green"], [.20, .88,"BA",36814,"yellow"]
-			];
+		var dataset;
+		// = [
+	//		[0, 0,"SP",86680,"blue"], [.80, .90,"MG",78838,"blue"], [.50, .50,"RJ",22383,"blue"], [1.00, .33,"AC",2310,"yellow"], [.30, .95,"SC",17671,"red"],
+	//		[.10, .12,"MA",18537,"green"], [.75, .44,"ES",10494,"blue"], [.25, .67,"TO",7478,"brown"], [.85, .21,"RR",1789,"green"], [.20, .88,"BA",36814,"yellow"]
+	//		];
 
 		//carrega o arquivo json
 		d3.json("candidatos.json", function(json) {
 			console.log(json); //Log output to console
+			dataset = data;
 		});
 
 		//largura e altura
