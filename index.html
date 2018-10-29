@@ -25,8 +25,8 @@
 
 		//definindo os dados
 		var dataset = [
-			[0, 0,"SP",86680,"blue"], [80, 90,"MG",78838,"blue"], [50, 50,"RJ",22383,"blue"], [100, 33,"AC",2310,"yellow"], [30, 95,"SC",17671,"red"],
-			[10, 12,"MA",18537,"green"], [75, 44,"ES",10494,"blue"], [25, 67,"TO",7478,"brown"], [85, 21,"RR",1789,"green"], [20, 88,"BA",36814,"yellow"]
+			[0, 0,"SP",86680,"blue"], [.80, .90,"MG",78838,"blue"], [.50, .50,"RJ",22383,"blue"], [1.00, .33,"AC",2310,"yellow"], [.30, .95,"SC",17671,"red"],
+			[.10, .12,"MA",18537,"green"], [.75, .44,"ES",10494,"blue"], [.25, .67,"TO",7478,"brown"], [.85, .21,"RR",1789,"green"], [.20, .88,"BA",36814,"yellow"]
 			];
 
 		//largura e altura
@@ -45,16 +45,16 @@
 			.attr("font-size", "11px")
 
 		//formatando eixos como porcentagem
-		var formatAsPercentage = d3.format(".1%");
+		var formatAsPercentage = d3.format(".0%");
 
 		//sets x-axis scale
 		var xScale = d3.scale.linear()
-			.domain([0, 100])
+			.domain([0, 1])
 			.range([padding, w-padding]);
 
 		//sets y-axis scale
 		var yScale = d3.scale.linear()
-			.domain([0, 100])
+			.domain([0, 1])
 			.range([h-padding, padding]);
 
 		//define escala do raio
@@ -65,11 +65,13 @@
 		//define eixo x
 		var xAxis = d3.svg.axis()
 			.scale(xScale)
+			.tickFormat(formatAsPercentage)
 			.orient("bottom");
 
 		//define eixo y
 		var yAxis = d3.svg.axis()
 			.scale(yScale)
+			.tickFormat(formatAsPercentage)
 			.orient("left")
 			.ticks(5);
 
