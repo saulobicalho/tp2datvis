@@ -118,7 +118,11 @@
 			.attr("transform", "translate(0," + (h - padding) + ")")
 			.call(xAxis);
 
-
+			//Create Y axis
+			svg.append("g")
+			.attr("class", "axis")
+			.attr("transform", "translate(" + padding + ",0)")
+			.call(yAxis);
 
 			//part3: logic with draw f. and others
 			//obs: draw() is a callback f. wich executes just after loading data files at part5
