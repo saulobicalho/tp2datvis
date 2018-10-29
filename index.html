@@ -47,17 +47,17 @@
 
 
 		//sets x-axis scale
-		var xScale = d3.scaleLinear()
+		var xScale = d3.scale.linear()
 			.domain([0, 100])
 			.range([padding, w-padding]);
 
 		//sets y-axis scale
-		var yScale = d3.scaleLinear()
+		var yScale = d3.scale.linear()
 			.domain([0, 100])
 			.range([h-padding, padding]);
 
 		//define escala do raio
-		var rScale = d3.scaleLinear()
+		var rScale = d3.scale.linear()
 			.domain([0, d3.max(dataset, function(d) { return d[3]; })])
 			.range([10, 40]);
 
