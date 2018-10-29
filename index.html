@@ -29,6 +29,11 @@
 			[.10, .12,"MA",18537,"green"], [.75, .44,"ES",10494,"blue"], [.25, .67,"TO",7478,"brown"], [.85, .21,"RR",1789,"green"], [.20, .88,"BA",36814,"yellow"]
 			];
 
+		//carrega o arquivo json
+		d3.json("candidatos.json", function(json) {
+			console.log(json); //Log output to console
+		});
+
 		//largura e altura
 		var w = 1000;
 		var h = 400;
