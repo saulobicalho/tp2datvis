@@ -24,116 +24,294 @@
 		<script type="text/javascript">
 
 		//definindo os dados
-		var dataset;
+		var dataset=[
+		  {
+		    "estado": "SP",
+		    "total": 86680,
+		    "fem": 27725,
+		    "csup":21599,
+		    "regiao": "blue"
+		  },
+		  {
+		    "estado": "MG",
+		    "total": 78838,
+		    "fem": 25024,
+		    "csup":12886,
+		    "regiao": "blue"
+		  },
+			{
+				"estado": "BA",
+				"total": 36814,
+				"fem": 11710,
+				"csup":6459,
+				"regiao": "yellow"
+			},
+			{
+				"estado": "PR",
+				"total": 31386,
+				"fem": 9951,
+				"csup":7125,
+				"regiao": "red"
+			},
+			{
+				"estado": "RS",
+				"total": 28917,
+				"fem": 9248,
+				"csup":6144,
+				"regiao": "red"
+			},
+			{
+				"estado": "RJ",
+				"total": 22383,
+				"fem": 7090,
+				"csup":4893,
+				"regiao": "blue"
+			},
+			{
+				"estado": "GO",
+				"total": 21270,
+				"fem": 6820,
+				"csup":4293,
+				"regiao": "brown"
+			},
+			{
+				"estado": "PA",
+				"total": 20634,
+				"fem": 6614,
+				"csup":3799,
+				"regiao": "green"
+			},
+			{
+				"estado": "PE",
+				"total": 19141,
+				"fem": 5998,
+				"csup":3547,
+				"regiao": "yellow"
+			},
+			{
+				"estado": "MA",
+				"total": 18537,
+				"fem": 6003,
+				"csup":3883,
+				"regiao": "yellow"
+			},
+			{
+				"estado": "SC",
+				"total": 17671,
+				"fem": 5565,
+				"csup":4661,
+				"regiao": "red"
+			},
+			{
+				"estado": "CE",
+				"total": 14938,
+				"fem": 4722,
+				"csup":3725,
+				"regiao": "yellow"
+			},
+			{
+				"estado": "PB",
+				"total": 11997,
+				"fem": 3806,
+				"csup":2416,
+				"regiao": "yellow"
+			},
+			{
+				"estado": "MT",
+				"total": 10431,
+				"fem": 3353,
+				"csup":2309,
+				"regiao": "brown"
+			},
+			{
+				"estado": "ES",
+				"total": 10494,
+				"fem": 3301,
+				"csup":1956,
+				"regiao": "blue"
+			},
+			{
+				"estado": "PI",
+				"total": 10198,
+				"fem": 3250,
+				"csup":2623,
+				"regiao": "yellow"
+			},
+			{
+				"estado": "AM",
+				"total": 9582,
+				"fem": 3005,
+				"csup":2149,
+				"regiao": "green"
+			},
+			{
+				"estado": "RN",
+				"total": 9150,
+				"fem": 2969,
+				"csup":2125,
+				"regiao": "yellow"
+			},
+			{
+				"estado": "TO",
+				"total": 7478,
+				"fem": 2434,
+				"csup":1530,
+				"regiao": "brown"
+			},
+			{
+				"estado": "MS",
+				"total": 7396,
+				"fem": 2372,
+				"csup":1954,
+				"regiao": "brown"
+			},
+			{
+				"estado": "AL",
+				"total": 7272,
+				"fem": 2312,
+				"csup":1509,
+				"regiao": "yellow"
+			},
+			{
+				"estado": "SE",
+				"total": 5889,
+				"fem": 1890,
+				"csup":1060,
+				"regiao": "yellow"
+			},
+			{
+				"estado": "RO",
+				"total": 4683,
+				"fem": 1491,
+				"csup":904,
+				"regiao": "green"
+			},
+			{
+				"estado": "AC",
+				"total": 2310,
+				"fem": 739,
+				"csup":478,
+				"regiao": "green"
+			},
+			{
+				"estado": "AP",
+				"total": 1890,
+				"fem": 629,
+				"csup":477,
+				"regiao": "green"
+			},
+			{
+				"estado": "RR",
+				"total": 1789,
+				"fem": 572,
+				"csup":383,
+				"regiao": "green"
+			}
+		];
 		// = [
 	//		[0, 0,"SP",86680,"blue"], [.80, .90,"MG",78838,"blue"], [.50, .50,"RJ",22383,"blue"], [1.00, .33,"AC",2310,"yellow"], [.30, .95,"SC",17671,"red"],
 	//		[.10, .12,"MA",18537,"green"], [.75, .44,"ES",10494,"blue"], [.25, .67,"TO",7478,"brown"], [.85, .21,"RR",1789,"green"], [.20, .88,"BA",36814,"yellow"]
 	//		];
 
-		//carrega o arquivo json
-		d3.json("candidatos.json", function(json) {
-		//	console.log(json); //Log output to console
-			dataset = json;
-			console.log(dataset);
-		});
-
 		//largura e altura
-		var w = 1000;
+		var w = 1200;
 		var h = 400;
 
 		//padding
 		var padding = 40;
 
-		//criando o elemento svg
-		var svg = d3.select("body")
-			.append("svg")
-			.attr("width", w)
-			.attr("height", h)
-			.attr("font-family", "sans-serif")
-			.attr("font-size", "11px")
-
-		//formatando eixos como porcentagem
-		var formatAsPercentage = d3.format(".0%");
-
-		//sets x-axis scale
-		var xScale = d3.scale.linear()
-			.domain([0, 1])
-			.range([padding, w-padding]);
-
-		//sets y-axis scale
-		var yScale = d3.scale.linear()
-			.domain([0, 1])
-			.range([h-padding, padding]);
-
-		//define escala do raio
-		var rScale = d3.scale.linear()
-			.domain([0, d3.max(dataset, function(d) { return d.total; })])
-			.range([10, 40]);
-
-		//define eixo x
-		var xAxis = d3.svg.axis()
-			.scale(xScale)
-			.tickFormat(formatAsPercentage)
-			.orient("bottom");
-
-		//define eixo y
-		var yAxis = d3.svg.axis()
-			.scale(yScale)
-			.tickFormat(formatAsPercentage)
-			.orient("left")
-			.ticks(5);
+	//criando o elemento svg
+	var svg = d3.select("body")
+		.append("svg")
+		.attr("width", w)
+		.attr("height", h)
+		.attr("font-family", "sans-serif")
+		.attr("font-size", "11px")
 
 
-		//adicionando circulos
-		var circles = svg.selectAll("circle")
-			.data(dataset)
-			.enter()
-			.append("circle");
+	//formatando eixos como porcentagem
+	var formatAsPercentage = d3.format(".1%");
 
-		//definindo propriedades dos circulos
-		circles.attr("cx", function(d) {
-				return xScale((d.fem)/(d.total));
+	//sets x-axis scale
+	var xScale = d3.scale.linear()
+		.domain([0.313, 0.3255])
+		.range([padding, w-padding]);
+
+	//sets y-axis scale
+	var yScale = d3.scale.linear()
+		.domain([0.145, 0.27])
+		.range([h-padding, padding]);
+
+	//define escala do raio
+	var rScale = d3.scale.linear()
+		.domain([0, d3.max(dataset, function(d) { return d.total; })])
+		.range([10, 40]);
+
+	//define eixo x
+	var xAxis = d3.svg.axis()
+		.scale(xScale)
+		.tickFormat(formatAsPercentage)
+		.orient("bottom");
+
+	//define eixo y
+	var yAxis = d3.svg.axis()
+		.scale(yScale)
+		.tickFormat(formatAsPercentage)
+		.orient("left");
+
+	//adicionando circulos
+	var circles = svg.selectAll("circle")
+		.data(dataset)
+		.enter()
+		.append("circle");
+
+	//definindo propriedades dos circulos
+	circles.attr("cx", function(d) {
+			return xScale((d.fem)/(d.total));
+		})
+		.attr("cy", function(d) {
+			return yScale((d.csup)/(d.total));
+		})
+		.attr("r", function(d) {
+			return rScale(d.total);
+		})
+		.attr("fill", function(d){
+			return d.regiao;
+		});
+
+	//adicionando rotulos
+	svg.selectAll("text")
+		.data(dataset)
+		.enter()
+		.append("text")
+		.text(function(d) {
+		return d.estado;
+		})
+		.attr("x", function(d) {
+			return xScale((d.fem)/(d.total))
 			})
-			.attr("cy", function(d) {
-				return yScale(d[1]);
-			})
-			.attr("r", function(d) {
-				return rScale(d[3]);
-			})
-			.attr("fill", function(d){
-				return d[4].toString();
-			});
+			.attr("y", function(d) {
+			return yScale((d.csup)/(d.total));
+		})
+		.attr("text-anchor", "middle")
+		.attr("font-family", "sans-serif")
+		.attr("font-size", "11px")
+		.attr("fill", "white");
 
-		//adicionando rotulos
-		svg.selectAll("text")
-			.data(dataset)
-			.enter()
-			.append("text")
-			.text(function(d) {
-			return d[2];
-			})
-			.attr("x", function(d) {
-				return xScale(d[0])
-				})
-				.attr("y", function(d) {
-				return yScale(d[1]);
-			})
-			.attr("text-anchor", "middle")
-			.attr("font-family", "sans-serif")
-			.attr("font-size", "11px")
-			.attr("fill", "white");
 
-			//constroi o eixo x
-			svg.append("g")
-			.attr("class", "axis") //Assign "axis" class
-			.attr("transform", "translate(0," + (h - padding) + ")")
-			.call(xAxis);
+		//constroi o eixo x
+		svg.append("g")
+		.attr("class", "axis") //Assign "axis" class
+		.attr("transform", "translate(0," + (h - padding) + ")")
+		.call(xAxis);
 
-			//Create Y axis
-			svg.append("g")
-			.attr("class", "axis")
-			.attr("transform", "translate(" + padding + ",0)")
-			.call(yAxis);
+		//Create Y axis
+		svg.append("g")
+		.attr("class", "axis")
+		.attr("transform", "translate(" + padding + ",0)")
+		.call(yAxis);
+
+
 
 			//part3: logic with draw f. and others
 			//obs: draw() is a callback f. wich executes just after loading data files at part5
