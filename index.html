@@ -4,7 +4,6 @@
 		<meta charset="utf-8">
 		<title>Grafico Dispersão</title>
 		<script type = "text/javascript" src="d3/d3.v5.min.js"></script>
-		<script src="css/estilo.css">
 
 		</script>
 		<p></p>
@@ -70,6 +69,11 @@
 		var xAxis = d3.axisBottom()
 			.scale(xScale);
 
+			//define eixo y
+			var xAxis = d3.axisLeft()
+				.scale(yScale);
+
+
 		//adicionando circulos
 		var circles = svg.selectAll("circle")
 			.data(dataset)
@@ -113,6 +117,7 @@
 		//constroi o eixo x
 		svg.append("g")
 			.attr("class", "axis") //Assign "axis" class
+			.attr("transform", "translate(0," + (h - padding) + ")")
 			.call(xAxis);
 
 			//part3: logic with draw f. and others
