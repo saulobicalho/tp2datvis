@@ -66,10 +66,11 @@
 			.scale(xScale)
 			.orient("bottom");
 
-			//define eixo y
-	//		var yAxis = d3.axisLeft()
-	//			.scale(yScale);
-
+		//define eixo y
+		var yAxis = d3.svg.axis()
+			.scale(yScale)
+			.orient("left")
+			.ticks(5);
 
 
 		//adicionando circulos
