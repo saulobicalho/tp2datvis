@@ -4,23 +4,19 @@
 		<meta charset="utf-8">
 		<title>Grafico Dispersão</title>
 		<script type = "text/javascript" src="d3/d3.v5.min.js"></script>
-
-		<p></p>
-		<p></p>
-		<p></p>
-		<p></p>
-		<p></p>
 		<style>
 			.axis path,
 			.axis line {
 			fill: none;
-			stroke: gray;
+			stroke: black;
 			shape-rendering: crispEdges;
 			}
 			.axis text {
 			font-family: sans-serif;
 			font-size: 11px;
+			fill: olive;
 			}
+
 		</style>
 	</head>
 	<body>
@@ -49,6 +45,7 @@
 			.attr("font-size", "11px")
 
 
+
 		//sets x-axis scale
 		var xScale = d3.scaleLinear()
 			.domain([0, 100])
@@ -71,6 +68,7 @@
 			//define eixo y
 			var xAxis = d3.axisLeft()
 				.scale(yScale);
+
 
 
 		//adicionando circulos
@@ -112,12 +110,12 @@
 			.attr("font-size", "11px")
 			.attr("fill", "white");
 
+			//constroi o eixo x
+			svg.append("g")
+		.attr("transform", "translate(0," + height + ")")
+		.call(d3.axisBottom(x));
 
-		//constroi o eixo x
-		svg.append("g")
-			.attr("class", "axis") //Assign "axis" class
-			.attr("transform", "translate(0," + (h - padding) + ")")
-			.call(xAxis);
+
 
 			//part3: logic with draw f. and others
 			//obs: draw() is a callback f. wich executes just after loading data files at part5
