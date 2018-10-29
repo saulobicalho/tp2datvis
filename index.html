@@ -33,7 +33,8 @@
 		//carrega o arquivo json
 		d3.json("candidatos.json", function(json) {
 			console.log(json); //Log output to console
-			dataset = json;
+		//	dataset = json;
+			console.log(dataset);
 		});
 
 		//largura e altura
@@ -91,7 +92,7 @@
 
 		//definindo propriedades dos circulos
 		circles.attr("cx", function(d) {
-				return xScale(d[0]);
+				return xScale((d.fem)/(d.total));
 			})
 			.attr("cy", function(d) {
 				return yScale(d[1]);
