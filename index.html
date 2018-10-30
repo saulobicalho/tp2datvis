@@ -97,12 +97,12 @@
 
 			//sets x-axis scale
 			var xScale = d3.scale.linear()
-				.domain([0.295, 0.335])       //0.313, 0.3255
+				.domain([0.299, 0.335])       //0.313, 0.3255
 				.range([padding, w-padding]);
 
 			//sets y-axis scale
 			var yScale = d3.scale.linear()
-				.domain([0, 0.7])        //0.145, 0.27
+				.domain([0, 0.55])        //0.145, 0.27
 				.range([h-padding, padding]);
 
 			//criando o elemento svg
@@ -159,7 +159,7 @@
 							chart.selectAll("circle")
 								.data(dataset)
 								.transition()
-								.duration(1000)
+								.duration(2000)
 								//definindo propriedades dos circulos
 								.attr("cx", function(d) {
 									return xScale((d.fem)/(d.total));
@@ -178,7 +178,7 @@
 							chart.selectAll("text")
 								.data(dataset)
 								.transition()
-								.duration(1000)
+								.duration(2000)
 								.text(function(d) {
 									return d.estado;
 								})

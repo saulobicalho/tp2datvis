@@ -57,9 +57,9 @@
   },
   {
     "estado": "PE",
-    "total": 19141,
-    "fem": 5998,
-    "csup":3547,
+    "total": 756,
+    "fem": 239,
+    "csup":301,
     "regiao": "yellow"
   },
   {
@@ -71,9 +71,9 @@
   },
   {
     "estado": "SC",
-    "total": 17671,
-    "fem": 5565,
-    "csup":4661,
+    "total": 676,
+    "fem": 219,
+    "csup":364,
     "regiao": "red"
   },
   {
@@ -85,100 +85,100 @@
   },
   {
     "estado": "PB",
-    "total": 11997,
-    "fem": 3806,
-    "csup":2416,
+    "total": 587,
+    "fem": 187,
+    "csup":294,
     "regiao": "yellow"
   },
   {
     "estado": "MT",
-    "total": 10431,
-    "fem": 3353,
-    "csup":2309,
+    "total": 485,
+    "fem": 149,
+    "csup":199,
     "regiao": "brown"
   },
   {
     "estado": "ES",
-    "total": 10494,
-    "fem": 3301,
-    "csup":1956,
+    "total": 792,
+    "fem": 247,
+    "csup":354,
     "regiao": "blue"
   },
   {
     "estado": "PI",
-    "total": 10198,
-    "fem": 3250,
-    "csup":2623,
+    "total": 403,
+    "fem": 127,
+    "csup":212,
     "regiao": "yellow"
   },
   {
     "estado": "AM",
-    "total": 9582,
-    "fem": 3005,
-    "csup":2149,
+    "total": 786,
+    "fem": 240,
+    "csup":364,
     "regiao": "green"
   },
   {
     "estado": "RN",
-    "total": 9150,
-    "fem": 2969,
-    "csup":2125,
+    "total": 406,
+    "fem": 131,
+    "csup":197,
     "regiao": "yellow"
   },
   {
     "estado": "TO",
-    "total": 7478,
-    "fem": 2434,
-    "csup":1530,
+    "total": 395,
+    "fem": 115,
+    "csup":198,
     "regiao": "brown"
   },
   {
     "estado": "MS",
-    "total": 7396,
-    "fem": 2372,
-    "csup":1954,
+    "total": 601,
+    "fem": 198,
+    "csup":281,
     "regiao": "brown"
   },
   {
     "estado": "AL",
-    "total": 7272,
-    "fem": 2312,
-    "csup":1509,
+    "total": 479,
+    "fem": 142,
+    "csup":206,
     "regiao": "yellow"
   },
   {
     "estado": "SE",
-    "total": 5889,
-    "fem": 1890,
-    "csup":1060,
+    "total": 303,
+    "fem": 95,
+    "csup":122,
     "regiao": "yellow"
   },
   {
     "estado": "RO",
-    "total": 4683,
-    "fem": 1491,
-    "csup":904,
+    "total": 571,
+    "fem": 180,
+    "csup":197,
     "regiao": "green"
   },
   {
     "estado": "AC",
-    "total": 2310,
-    "fem": 739,
-    "csup":478,
+    "total": 621,
+    "fem": 196,
+    "csup":264,
     "regiao": "green"
   },
   {
     "estado": "AP",
-    "total": 1890,
-    "fem": 629,
-    "csup":477,
+    "total": 550,
+    "fem": 171,
+    "csup":297,
     "regiao": "green"
   },
   {
     "estado": "RR",
-    "total": 1789,
-    "fem": 572,
-    "csup":383,
+    "total": 541,
+    "fem": 172,
+    "csup":191,
     "regiao": "green"
   }
 ]
