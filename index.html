@@ -18,7 +18,7 @@
 			}
 		</style>
 		<script>
-		function draw(dataset){
+		function draw(data){
 
 			//largura e altura
 			var w = 1200;
@@ -41,8 +41,7 @@
 				.range([h-padding, padding]);
 
 			//criando o elemento svg
-			var svg = d3.select("body")
-				.append("svg")
+			var chart = d3.select(".chart")
 				.attr("width", w)
 				.attr("height", h)
 				.attr("font-family", "sans-serif")
@@ -50,7 +49,7 @@
 
 			//define escala do raio
 			var rScale = d3.scale.linear()
-				.domain([0, d3.max(dataset, function(d) { return d.total; })])
+				.domain([0, d3.max(data, function(d) { return d.total; })])
 				.range([10, 40]);
 
 			//define eixo x
@@ -66,8 +65,8 @@
 				.orient("left");
 
 			//adicionando circulos
-			var circles = svg.selectAll("circle")
-				.data(dataset)
+			var circles = chart.selectAll("circle")
+				.data(data)
 				.enter()
 				.append("circle");
 
@@ -86,8 +85,8 @@
 				});
 
 			//adicionando rotulos
-			svg.selectAll("text")
-				.data(dataset)
+			chart.selectAll("text")
+				.data(data)
 				.enter()
 				.append("text")
 				.text(function(d) {
@@ -105,13 +104,13 @@
 				.attr("fill", "white");
 
 				//constroi o eixo x
-				svg.append("g")
+				chart.append("g")
 				.attr("class", "axis") //Assign "axis" class
 				.attr("transform", "translate(0," + (h - padding) + ")")
 				.call(xAxis);
 
 				//Create Y axis
-				svg.append("g")
+				chart.append("g")
 				.attr("class", "axis")
 				.attr("transform", "translate(" + padding + ",0)")
 				.call(yAxis);
@@ -120,7 +119,7 @@
 		</script>
 	</head>
 	<body>
-
+		<svg class="chart"></svg>
 		<script type="text/javascript">
 
 		//definindo os dados
@@ -134,7 +133,7 @@
 				console.log(data); //Log the data.
 			//Include other code to execute after successful file load here
 			dataset = data;
-			draw(data);
+			draw(dataset);
 			}
 		});
 
