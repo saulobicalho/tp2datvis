@@ -1,5 +1,6 @@
 [
   {
+    "nome": "São Paulo",
     "estado": "SP",
     "total": 86680,
     "fem": 27725,
@@ -7,6 +8,7 @@
     "regiao": "blue"
   },
   {
+    "nome": "Minas Gerais",
     "estado": "MG",
     "total": 78838,
     "fem": 25024,
@@ -14,6 +16,7 @@
     "regiao": "blue"
   },
   {
+    "nome": "Bahia",
     "estado": "BA",
     "total": 36814,
     "fem": 11710,
@@ -21,6 +24,7 @@
     "regiao": "yellow"
   },
   {
+    "nome": "Paraná",
     "estado": "PR",
     "total": 31386,
     "fem": 9951,
@@ -28,6 +32,7 @@
     "regiao": "red"
   },
   {
+    "nome": "Rio Grande do Sul",
     "estado": "RS",
     "total": 28917,
     "fem": 9248,
@@ -35,6 +40,7 @@
     "regiao": "red"
   },
   {
+    "nome": "Rio de Janeiro",
     "estado": "RJ",
     "total": 22383,
     "fem": 7090,
@@ -42,6 +48,7 @@
     "regiao": "blue"
   },
   {
+    "nome": "Goiás",
     "estado": "GO",
     "total": 21270,
     "fem": 6820,
@@ -49,6 +56,7 @@
     "regiao": "brown"
   },
   {
+    "nome": "Pará",
     "estado": "PA",
     "total": 20634,
     "fem": 6614,
@@ -56,6 +64,7 @@
     "regiao": "green"
   },
   {
+    "nome": "Pernambuco",
     "estado": "PE",
     "total": 19141,
     "fem": 5998,
@@ -63,6 +72,7 @@
     "regiao": "yellow"
   },
   {
+    "nome": "Maranhão",
     "estado": "MA",
     "total": 18537,
     "fem": 6003,
@@ -70,6 +80,7 @@
     "regiao": "yellow"
   },
   {
+    "nome": "Santa Catarina",
     "estado": "SC",
     "total": 17671,
     "fem": 5565,
@@ -77,6 +88,7 @@
     "regiao": "red"
   },
   {
+    "nome": "Ceará",
     "estado": "CE",
     "total": 14938,
     "fem": 4722,
@@ -84,6 +96,7 @@
     "regiao": "yellow"
   },
   {
+    "nome": "Paraíba",
     "estado": "PB",
     "total": 11997,
     "fem": 3806,
@@ -91,6 +104,7 @@
     "regiao": "yellow"
   },
   {
+    "nome": "Mato Grosso",
     "estado": "MT",
     "total": 10431,
     "fem": 3353,
@@ -98,6 +112,7 @@
     "regiao": "brown"
   },
   {
+    "nome": "Espírito Santo",
     "estado": "ES",
     "total": 10494,
     "fem": 3301,
@@ -105,6 +120,7 @@
     "regiao": "blue"
   },
   {
+    "nome": "Piauí",
     "estado": "PI",
     "total": 10198,
     "fem": 3250,
@@ -112,6 +128,7 @@
     "regiao": "yellow"
   },
   {
+    "nome": "Amazonas",
     "estado": "AM",
     "total": 9582,
     "fem": 3005,
@@ -119,6 +136,7 @@
     "regiao": "green"
   },
   {
+    "nome": "Rio Grande do Norte",
     "estado": "RN",
     "total": 9150,
     "fem": 2969,
@@ -126,6 +144,7 @@
     "regiao": "yellow"
   },
   {
+    "nome": "Tocantins",
     "estado": "TO",
     "total": 7478,
     "fem": 2434,
@@ -133,6 +152,7 @@
     "regiao": "brown"
   },
   {
+    "nome": "Mato Grosso do Sul",
     "estado": "MS",
     "total": 7396,
     "fem": 2372,
@@ -140,6 +160,7 @@
     "regiao": "brown"
   },
   {
+    "nome": "Alagoas",
     "estado": "AL",
     "total": 7272,
     "fem": 2312,
@@ -147,6 +168,7 @@
     "regiao": "yellow"
   },
   {
+    "nome": "Sergipe",
     "estado": "SE",
     "total": 5889,
     "fem": 1890,
@@ -154,6 +176,7 @@
     "regiao": "yellow"
   },
   {
+    "nome": "Roraima",
     "estado": "RO",
     "total": 4683,
     "fem": 1491,
@@ -161,6 +184,7 @@
     "regiao": "green"
   },
   {
+    "nome": "Acre",
     "estado": "AC",
     "total": 2310,
     "fem": 739,
@@ -168,6 +192,7 @@
     "regiao": "green"
   },
   {
+    "nome": "Amapá",
     "estado": "AP",
     "total": 1890,
     "fem": 629,
@@ -175,6 +200,7 @@
     "regiao": "green"
   },
   {
+    "nome": "Roraima",
     "estado": "RR",
     "total": 1789,
     "fem": 572,
