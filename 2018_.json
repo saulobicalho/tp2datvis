@@ -1,0 +1,37 @@
+[
+  {
+   "cor": "Negra",
+   "fem": 1237,
+   "csup": 1203,
+   "total": 29145,
+   "skin":"#330000"
+  },
+  {
+   "cor": "Parda",
+   "fem": 3165,
+   "csup":4120,
+   "total": 29145,
+   "skin": "#cc9966"
+  },
+  {
+   "cor": "Branca",
+   "fem": 4698,
+   "csup": 8770,
+   "total": 29145,
+   "skin":"#ffcccc"
+  },
+  {
+   "cor": "Amarela",
+   "fem": 62,
+   "csup": 79,
+   "total": 29145,
+   "skin":"#ffff99"
+  },
+  {
+   "cor": "Indígena",
+   "fem": 49,
+   "csup": 60,
+   "total": 29145,
+   "skin":"#cc0000"
+  }
+]
