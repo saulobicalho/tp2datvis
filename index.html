@@ -135,7 +135,7 @@
 				console.log(data); //Log the data.
 			//Include other code to execute after successful file load here
 			dataset = data;
-			draw(dataset);
+
 			}
 		});
 
@@ -143,52 +143,32 @@
 		.on("click", function() {
 			//Do something mundane and annoying on click
 			alert($(this).html());
-			d3.json($(this).html() + ".json", function(error, data) {
+			d3.json($(this).html() + ".json", function(error,data) {
 				if (error) { //If error is not null, something went wrong.
 					console.log(error); //Log the error.
 				}
 				else { //If no error, the file loaded correctly. Yay!
 					console.log(data); //Log the data.
-				//Include other code to execute after successful file load here
-				dataset = data;
-				circles = document.getElementById("chart").selectAll("circle")
-					.data(data)
-
-				//definindo propriedades dos circulos
-				circles.attr("cx", function(d) {
-						return xScale((d.fem)/(d.total));
-					})
-					.attr("cy", function(d) {
-						return yScale((d.csup)/(d.total));
-					})
-					.attr("r", function(d) {
-						return rScale(d.total);
-					})
-					.attr("fill", function(d){
-						return d.regiao;
-					});
-
-				//adicionando rotulos
-				chart.selectAll("text")
-					.data(data)
-					.enter()
-					.append("text")
-					.text(function(d) {
-					return d.estado;
-					})
-					.attr("x", function(d) {
-						return xScale((d.fem)/(d.total))
-						})
-						.attr("y", function(d) {
-						return yScale((d.csup)/(d.total));
-					})
-					.attr("text-anchor", "middle")
-					.attr("font-family", "sans-serif")
-					.attr("font-size", "11px")
-					.attr("fill", "white");
+					dataset = data;
+					draw(dataset);
 				}
 			});
 		});
+
+
+//
+//				if (error) { //If error is not null, something went wrong.
+//					console.log(error); //Log the error.
+//				}
+//				else { //If no error, the file loaded correctly. Yay!
+//					console.log(data); //Log the data.
+					//Include other code to execute after successful file load here
+//					svg.selectAll("*").remove();
+//
+//				});
+//			}
+//		}
+
 		</script>
 
 	</body>
