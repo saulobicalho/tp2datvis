@@ -5,6 +5,30 @@
 		<title>Grafico Dispersão</title>
 		<script type = "text/javascript" src="d3/d3.v3.min.js"></script>
 		<style>
+		.legend{
+			display: inline-grid;
+			border-style: double;
+		}
+		.square {
+			position: relative;
+		  height: 10px;
+  		width: 10px;
+		}
+		#sul{
+			background-color: red;
+		}
+		#sudeste{
+			background-color: blue;
+		}
+		#centroeste{
+			background-color: brown;
+		}
+		#nordeste{
+			background-color: yellow;
+		}
+		#norte{
+			background-color: green;
+		}
 			.axis path,
 			.axis line {
 			fill: none;
@@ -147,7 +171,7 @@
 								.data(dataset)
 								.append("title")
 									.text(function(d) {
-										return "Estado: " + d.estado + "\n"
+										return "Estado:" +"\t"+"\t"+"\t" + d.nome + "\n"
 										+ "Total:" +"\t"+"\t"+"\t" + d.total + "\n"
 										+ "% Feminino:" +"\t"+"\t"+d.fem + "\n"
 										+ "% Curso sup.completo:" +"\t"+ d.csup;
@@ -171,6 +195,16 @@
 	<body>
 		<p id="year">2014</p>
 		<p id="year">2016</p>
+		<div class="legend">
+			Legenda:
+			<div class="square" id="sul"></div>Sul
+			<div class="square"id="sudeste"></div>Sudeste
+			<div class="square"id="centroeste"></div>Centro-Oeste
+			<div class="square"id="nordeste"></div>Nordeste
+			<div class="square"id="norte"></div>Norte
+		</div>
+
+		</div>
 		<svg class="chart">
 			<circle cx="50" cy="50" r="40" fill="green" />
 			<circle cx="50" cy="50" r="40" fill="green" />
