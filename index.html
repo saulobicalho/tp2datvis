@@ -32,12 +32,12 @@
 
 			//sets x-axis scale
 			var xScale = d3.scale.linear()
-				.domain([0.313, 0.3255])
+				.domain([0.295, 0.335])       //0.313, 0.3255
 				.range([padding, w-padding]);
 
 			//sets y-axis scale
 			var yScale = d3.scale.linear()
-				.domain([0.145, 0.27])
+				.domain([0, 0.7])        //0.145, 0.27
 				.range([h-padding, padding]);
 
 			//criando o elemento svg
@@ -119,31 +119,29 @@
 		</script>
 	</head>
 	<body>
-		<p id="firstYear">2012</p>
-		<p id="secondYear">2014</p>
-		<p id="thirdYear" >2016</p>
+		<p id="year">2014</p>
+		<p id="year">2016</p>
 		<svg class="chart"></svg>
 		<script type="text/javascript">
 
 		//definindo os dados
 		var dataset;
 
-		d3.json("candidatos16.json", function(error, data) {
-			if (error) { //If error is not null, something went wrong.
-				console.log(error); //Log the error.
-			}
-			else { //If no error, the file loaded correctly. Yay!
-				console.log(data); //Log the data.
-			//Include other code to execute after successful file load here
-			dataset = data;
-			draw(dataset);
-			}
-		});
-
-		d3.select("#firstYear")
+		d3.selectAll("#year")
 		.on("click", function() {
-		//Do something mundane and annoying on click
-		alert($(this).html());
+			//Do something mundane and annoying on click
+			alert($(this).html());
+			d3.json($(this).html() + ".json", function(error, data) {
+				if (error) { //If error is not null, something went wrong.
+					console.log(error); //Log the error.
+				}
+				else { //If no error, the file loaded correctly. Yay!
+					console.log(data); //Log the data.
+				//Include other code to execute after successful file load here
+				dataset = data;
+				draw(dataset);
+				}
+			});
 		});
 		</script>
 
