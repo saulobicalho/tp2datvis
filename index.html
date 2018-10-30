@@ -18,7 +18,72 @@
 			}
 		</style>
 		<script>
-		function draw(data){
+		function drawCircles(data){
+
+			//largura e altura
+			var w = 1200;
+			var h = 400;
+
+			//padding
+			var padding = 40;
+
+			//sets x-axis scale
+			var xScale = d3.scale.linear()
+				.domain([0.295, 0.335])       //0.313, 0.3255
+				.range([padding, w-padding]);
+
+			//sets y-axis scale
+			var yScale = d3.scale.linear()
+				.domain([0, 0.7])        //0.145, 0.27
+				.range([h-padding, padding]);
+
+			//define escala do raio
+			var rScale = d3.scale.linear()
+				.domain([0, d3.max(data, function(d) { return d.total; })])
+				.range([10, 40]);
+
+			//adicionando circulos
+			var circles = chart.selectAll("circle")
+				.data(data)
+				.enter()
+				.append("circle");
+
+			//definindo propriedades dos circulos
+			circles.attr("cx", function(d) {
+					return xScale((d.fem)/(d.total));
+				})
+				.attr("cy", function(d) {
+					return yScale((d.csup)/(d.total));
+				})
+				.attr("r", function(d) {
+						return rScale(d.total);
+				})
+				.attr("fill", function(d){
+						return d.regiao;
+				});
+
+			//adicionando rotulos
+			chart.selectAll("text")
+				.data(data)
+				.enter()
+				.append("text")
+				.text(function(d) {
+					return d.estado;
+				})
+				.attr("x", function(d) {
+					return xScale((d.fem)/(d.total))
+				})
+				.attr("y", function(d) {
+					return yScale((d.csup)/(d.total));
+				})
+				.attr("text-anchor", "middle")
+				.attr("font-family", "sans-serif")
+				.attr("font-size", "11px")
+				.attr("fill", "white");
+
+		}
+
+		function draw(){
 
 			//largura e altura
 			var w = 1200;
@@ -47,11 +112,6 @@
 				.attr("font-family", "sans-serif")
 				.attr("font-size", "11px")
 
-			//define escala do raio
-			var rScale = d3.scale.linear()
-				.domain([0, d3.max(data, function(d) { return d.total; })])
-				.range([10, 40]);
-
 			//define eixo x
 			var xAxis = d3.svg.axis()
 				.scale(xScale)
@@ -64,44 +124,6 @@
 				.tickFormat(formatAsPercentage)
 				.orient("left");
 
-			//adicionando circulos
-			var circles = chart.selectAll("circle")
-				.data(data)
-				.enter()
-				.append("circle");
-
-			//definindo propriedades dos circulos
-			circles.attr("cx", function(d) {
-					return xScale((d.fem)/(d.total));
-				})
-				.attr("cy", function(d) {
-					return yScale((d.csup)/(d.total));
-				})
-				.attr("r", function(d) {
-					return rScale(d.total);
-				})
-				.attr("fill", function(d){
-					return d.regiao;
-				});
-
-			//adicionando rotulos
-			chart.selectAll("text")
-				.data(data)
-				.enter()
-				.append("text")
-				.text(function(d) {
-				return d.estado;
-				})
-				.attr("x", function(d) {
-					return xScale((d.fem)/(d.total))
-					})
-					.attr("y", function(d) {
-					return yScale((d.csup)/(d.total));
-				})
-				.attr("text-anchor", "middle")
-				.attr("font-family", "sans-serif")
-				.attr("font-size", "11px")
-				.attr("fill", "white");
 
 				//constroi o eixo x
 				chart.append("g")
@@ -114,6 +136,71 @@
 				.attr("class", "axis")
 				.attr("transform", "translate(" + padding + ",0)")
 				.call(yAxis);
+
+
+				//seleciona o ano e gera os circulos
+				d3.selectAll("#year")
+				.on("click", function() {
+					//Do something mundane and annoying on click
+					alert($(this).html());
+					d3.json($(this).html() + ".json", function(error,data) {
+						if (error) { //If error is not null, something went wrong.
+							console.log(error); //Log the error.
+						}
+						else { //If no error, the file loaded correctly. Yay!
+							console.log(data); //Log the data.
+							dataset = data;
+
+							//define escala do raio
+							var rScale = d3.scale.linear()
+								.domain([0, d3.max(data, function(d) { return d.total; })])
+								.range([10, 40]);
+
+							chart.selectAll("circle")
+								.data(dataset)
+								.transition()
+								.duration(1000)
+								//definindo propriedades dos circulos
+								.attr("cx", function(d) {
+									return xScale((d.fem)/(d.total));
+								})
+								.attr("cy", function(d) {
+									return yScale((d.csup)/(d.total));
+								})
+								.attr("r", function(d) {
+									return rScale(d.total);
+								})
+								.attr("fill", function(d){
+									return d.regiao;
+								});
+
+							//adicionando rotulos
+							chart.selectAll("text")
+								.data(dataset)
+								.transition()
+								.duration(1000)
+								.text(function(d) {
+									return d.estado;
+								})
+								.attr("x", function(d) {
+									return xScale((d.fem)/(d.total))
+								})
+								.attr("y", function(d) {
+									return yScale((d.csup)/(d.total));
+								})
+								.attr("text-anchor", "middle")
+								.attr("font-family", "sans-serif")
+								.attr("font-size", "11px")
+								.attr("fill", "white");
+
+
+
+						//	drawCircles(dataset);
+						}
+					});
+				});
+
+
 			}
 
 		</script>
@@ -121,11 +208,67 @@
 	<body>
 		<p id="year">2014</p>
 		<p id="year">2016</p>
-		<svg class="chart"></svg>
+		<svg class="chart">
+			<circle cx="50" cy="50" r="40" fill="green" />
+			<circle cx="50" cy="50" r="40" fill="green" />
+			<circle cx="50" cy="50" r="40" fill="green" />
+			<circle cx="50" cy="50" r="40" fill="green" />
+			<circle cx="50" cy="50" r="40" fill="green" />
+			<circle cx="50" cy="50" r="40" fill="green" />
+			<circle cx="50" cy="50" r="40" fill="green" />
+			<circle cx="50" cy="50" r="40" fill="green" />
+			<circle cx="50" cy="50" r="40" fill="green" />
+			<circle cx="50" cy="50" r="40" fill="green" />
+			<circle cx="50" cy="50" r="40" fill="green" />
+			<circle cx="50" cy="50" r="40" fill="green" />
+			<circle cx="50" cy="50" r="40" fill="green" />
+			<circle cx="50" cy="50" r="40" fill="green" />
+			<circle cx="50" cy="50" r="40" fill="green" />
+			<circle cx="50" cy="50" r="40" fill="green" />
+			<circle cx="50" cy="50" r="40" fill="green" />
+			<circle cx="50" cy="50" r="40" fill="green" />
+			<circle cx="50" cy="50" r="40" fill="green" />
+			<circle cx="50" cy="50" r="40" fill="green" />
+			<circle cx="50" cy="50" r="40" fill="green" />
+			<circle cx="50" cy="50" r="40" fill="green" />
+			<circle cx="50" cy="50" r="40" fill="green" />
+			<circle cx="50" cy="50" r="40" fill="green" />
+			<circle cx="50" cy="50" r="40" fill="green" />
+			<circle cx="50" cy="50" r="40" fill="green" />
+
+			 <text x="50" y="50" fill="white">BRASIL</text>
+			 <text x="50" y="50" fill="white">BRASIL</text>
+			 <text x="50" y="50" fill="white">BRASIL</text>
+			 <text x="50" y="50" fill="white">BRASIL</text>
+			 <text x="50" y="50" fill="white">BRASIL</text>
+			 <text x="50" y="50" fill="white">BRASIL</text>
+			 <text x="50" y="50" fill="white">BRASIL</text>
+			 <text x="50" y="50" fill="white">BRASIL</text>
+			 <text x="50" y="50" fill="white">BRASIL</text>
+			 <text x="50" y="50" fill="white">BRASIL</text>
+			 <text x="50" y="50" fill="white">BRASIL</text>
+			 <text x="50" y="50" fill="white">BRASIL</text>
+			 <text x="50" y="50" fill="white">BRASIL</text>
+			 <text x="50" y="50" fill="white">BRASIL</text>
+			 <text x="50" y="50" fill="white">BRASIL</text>
+			 <text x="50" y="50" fill="white">BRASIL</text>
+			 <text x="50" y="50" fill="white">BRASIL</text>
+			 <text x="50" y="50" fill="white">BRASIL</text>
+			 <text x="50" y="50" fill="white">BRASIL</text>
+			 <text x="50" y="50" fill="white">BRASIL</text>
+			 <text x="50" y="50" fill="white">BRASIL</text>
+			 <text x="50" y="50" fill="white">BRASIL</text>
+			 <text x="50" y="50" fill="white">BRASIL</text>
+			 <text x="50" y="50" fill="white">BRASIL</text>
+			 <text x="50" y="50" fill="white">BRASIL</text>
+			 <text x="50" y="50" fill="white">BRASIL</text>
+		</svg>
 		<script type="text/javascript">
 
 		//definindo os dados
 		var dataset;
+
+		draw();
 /*
 		d3.json("2014.json", function(error, data) {
 			if (error) { //If error is not null, something went wrong.
@@ -140,21 +283,7 @@
 		});
 		*/
 
-		d3.selectAll("#year")
-		.on("click", function() {
-			//Do something mundane and annoying on click
-			alert($(this).html());
-			d3.json($(this).html() + ".json", function(error,data) {
-				if (error) { //If error is not null, something went wrong.
-					console.log(error); //Log the error.
-				}
-				else { //If no error, the file loaded correctly. Yay!
-					console.log(data); //Log the data.
-					dataset = data;
-					draw(dataset);
-				}
-			});
-		});
+
 
 
 //
