@@ -119,13 +119,16 @@
 		</script>
 	</head>
 	<body>
+		<p id="firstYear">2012</p>
+		<p id="secondYear">2014</p>
+		<p id="thirdYear" >2016</p>
 		<svg class="chart"></svg>
 		<script type="text/javascript">
 
 		//definindo os dados
 		var dataset;
 
-		d3.json("candidatos.json", function(error, data) {
+		d3.json("candidatos16.json", function(error, data) {
 			if (error) { //If error is not null, something went wrong.
 				console.log(error); //Log the error.
 			}
@@ -137,7 +140,13 @@
 			}
 		});
 
+		d3.select("#firstYear")
+		.on("click", function() {
+		//Do something mundane and annoying on click
+		alert($(this).html());
+		});
 		</script>
 
 	</body>
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 </html>
