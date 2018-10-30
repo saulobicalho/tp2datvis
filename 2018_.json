@@ -4,6 +4,7 @@
    "fem": 1237,
    "csup": 1203,
    "total": 29145,
+   "totalGrupo": 3161,
    "skin":"#330000"
   },
   {
@@ -11,6 +12,7 @@
    "fem": 3165,
    "csup":4120,
    "total": 29145,
+   "totalGrupo": 10396,
    "skin": "#cc9966"
   },
   {
@@ -18,6 +20,7 @@
    "fem": 4698,
    "csup": 8770,
    "total": 29145,
+   "totalGrupo": 15286,
    "skin":"#ffcccc"
   },
   {
@@ -25,6 +28,7 @@
    "fem": 62,
    "csup": 79,
    "total": 29145,
+   "totalGrupo": 168,
    "skin":"#ffff99"
   },
   {
@@ -32,6 +36,7 @@
    "fem": 49,
    "csup": 60,
    "total": 29145,
+   "totalGrupo": 134,
    "skin":"#cc0000"
   }
 ]
