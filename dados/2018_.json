@@ -1,42 +1,42 @@
 [
   {
-   "cor": "Negra",
+   "nome": "Negra",
    "fem": 1237,
    "csup": 1203,
    "total": 29145,
    "totalGrupo": 3161,
-   "skin":"#330000"
+   "corCirculo":"#330000"
   },
   {
-   "cor": "Parda",
+   "nome": "Parda",
    "fem": 3165,
    "csup":4120,
    "total": 29145,
    "totalGrupo": 10396,
-   "skin": "#cc9966"
+   "corCirculo": "#cc9966"
   },
   {
-   "cor": "Branca",
+   "nome": "Branca",
    "fem": 4698,
    "csup": 8770,
    "total": 29145,
    "totalGrupo": 15286,
-   "skin":"#ffcccc"
+   "corCirculo":"#ffcccc"
   },
   {
-   "cor": "Amarela",
+   "nome": "Amarela",
    "fem": 62,
    "csup": 79,
    "total": 29145,
    "totalGrupo": 168,
-   "skin":"#ffff99"
+   "corCirculo":"#ffff99"
   },
   {
-   "cor": "Indígena",
+   "nome": "Indígena",
    "fem": 49,
    "csup": 60,
    "total": 29145,
    "totalGrupo": 134,
-   "skin":"#cc0000"
+   "corCirculo":"#cc0000"
   }
 ]
