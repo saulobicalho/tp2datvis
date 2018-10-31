@@ -3,42 +3,19 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Visualização 2</title>
+		<link rel="stylesheet" type="text/css" href="css/estilos.css">
 		<script type = "text/javascript" src="d3/d3.v3.min.js"></script>
 		<style>
-		.legend{
-			display: inline-grid;
-			border-style: double;
-		}
-		.square {
-			position: relative;
-		  height: 10px;
-  		width: 10px;
-		}
-		#negra{
-			background-color: "#330000";
-		}
-		#parda{
-			background-color: "#cc9966";
-		}
-		#branca{
-			background-color: "#ffcccc";
-		}
-		#amarela{
-			background-color: "#ffff99";
-		}
-		#indigena{
-			background-color: "#cc0000";
-		}
 			.axis path,
 			.axis line {
-			fill: none;
-			stroke: grey;
-			shape-rendering: crispEdges;
+  			fill: none;
+  			stroke: grey;
+  			shape-rendering: crispEdges;
 			}
 			.axis text {
-			font-family: sans-serif;
-			font-size: 11px;
-			fill: olive;
+  			font-family: sans-serif;
+  			font-size: 11px;
+  			fill: olive;
 			}
 
 			circle {
@@ -187,16 +164,11 @@
 									.append("title")
 										.text(function(d) {
 											return "Cor:" +"\t"+"\t"+"\t" + d.cor + "\n"
-											+ "Total:" +"\t"+"\t"+"\t" + d.total + "\n"
-											+ "% Feminino:" +"\t"+"\t"+d.fem + "\n"
-											+ "% Curso sup.completo:" +"\t"+ d.csup;
+											+ "Total do grupo:" +"\t"+"\t" + d.totalGrupo + "\n"
+											+ "Feminino:" +"\t"+"\t"+d.fem + "\n"
+											+ "Curso sup.completo:" +"\t"+ d.csup;
 										});
 
-	/*
-									$("circle").mouseover(function(){
-									    $("p").css("background-color", "yellow");
-									});
-	*/
 								}
 						});
 					});
@@ -224,7 +196,7 @@
 			<text x="50" y="50" fill="white"></text>
 			<text x="50" y="50" fill="white"></text>
 			<text x="50" y="50" fill="white"></text>
-
+    </svg>
       <div class="legend">
 			Legenda:
   			<div class="square" id="amarela"></div>Amarela
@@ -234,19 +206,15 @@
   			<div class="square"id="negra"></div>Negra
   		</div>
 
-	 </svg>
-
 		<script type="text/javascript">
 
 		//definindo os dados
 		var dataset;
 		drawSkin();
 
-
-//		}
-
 		</script>
 
 	</body>
 	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
 </html>
