@@ -5,7 +5,7 @@
     "total": 3664,
     "fem": 1124,
     "csup":1879,
-    "regiao": #003366
+    "regiao": "#003366"
   },
   {
     "nome": "Minas Gerais",
@@ -21,7 +21,7 @@
     "total": 1093,
     "fem": 342,
     "csup":477,
-    "regiao": "#999900"
+    "regiao": "#ff6600"
   },
   {
     "nome": "Paraná",
@@ -53,7 +53,7 @@
     "total": 1064,
     "fem": 319,
     "csup":464,
-    "regiao": "brown"
+    "regiao": "#cc00ff"
   },
   {
     "nome": "Pará",
@@ -69,7 +69,7 @@
     "total": 756,
     "fem": 239,
     "csup":301,
-    "regiao": "#999900"
+    "regiao": "#ff6600"
   },
   {
     "nome": "Maranhão",
@@ -77,7 +77,7 @@
     "total": 895,
     "fem": 286,
     "csup":398,
-    "regiao": "#999900"
+    "regiao": "#ff6600"
   },
   {
     "nome": "Santa Catarina",
@@ -93,7 +93,7 @@
     "total": 879,
     "fem": 271,
     "csup":408,
-    "regiao": "#999900"
+    "regiao": "#ff6600"
   },
   {
     "nome": "Paraíba",
@@ -101,7 +101,7 @@
     "total": 587,
     "fem": 187,
     "csup":294,
-    "regiao": "#999900"
+    "regiao": "#ff6600"
   },
   {
     "nome": "Mato Grosso",
@@ -109,7 +109,7 @@
     "total": 485,
     "fem": 149,
     "csup":199,
-    "regiao": "brown"
+    "regiao": "#cc00ff"
   },
   {
     "nome": "Espírito Santo",
@@ -125,7 +125,7 @@
     "total": 403,
     "fem": 127,
     "csup":212,
-    "regiao": "#999900"
+    "regiao": "#ff6600"
   },
   {
     "nome": "Amazonas",
@@ -141,7 +141,7 @@
     "total": 406,
     "fem": 131,
     "csup":197,
-    "regiao": "#999900"
+    "regiao": "#ff6600"
   },
   {
     "nome": "Tocantins",
@@ -149,7 +149,7 @@
     "total": 395,
     "fem": 115,
     "csup":198,
-    "regiao": "brown"
+    "regiao": "#cc00ff"
   },
   {
     "nome": "Mato Grosso do Sul",
@@ -157,7 +157,7 @@
     "total": 601,
     "fem": 198,
     "csup":281,
-    "regiao": "brown"
+    "regiao": "#cc00ff"
   },
   {
     "nome": "Alagoas",
@@ -165,7 +165,7 @@
     "total": 479,
     "fem": 142,
     "csup":206,
-    "regiao": "#999900"
+    "regiao": "#ff6600"
   },
   {
     "nome": "Sergipe",
@@ -173,7 +173,7 @@
     "total": 303,
     "fem": 95,
     "csup":122,
-    "regiao": "#999900"
+    "regiao": "#ff6600"
   },
   {
     "nome": "Roraima",
