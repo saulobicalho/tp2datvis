@@ -6,6 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="css/estilos.css">
 		<script type = "text/javascript" src="d3/d3.v3.min.js"></script>
 		<script src="js/helper.js" charset="utf-8"></script>
+		<script src="dados" charset="utf-8"></script>
 
 		<style>
 		.axis path,
@@ -33,30 +34,22 @@
 		}
 
 		</style>
-		<script>
 
-		function draw(){
-
-
-			//largura e altura
-			var w = 1700;
-			var h = 400;
-
-			//padding
-			var padding = 90;
-
-			configuraGrafico(w,h);
-
-			//reage ao clique em algum ano
-			atualizaGraficoEstado(padding,w,h);
-
-				}
-
-		</script>
 	</head>
 	<body>
-		<h1>Visualização 1: Distribuição do Perfil Social - por Estado</h1>
-		<h2>Clique sobre um dos anos abaixo:</h2>
+		<main>
+			<h1 class="titulo-principal">Trabalho Prático de Visualização de Dados</h1>
+			<p>Este trabalho está dividido em duas Visualizações diferentes. Por favor escolha uma das visualizações possíveis clicando sobre a mesma, abaixo: </p>
+
+			<nav>
+				<ul>
+					<li><a href="index.html">Apresentação</a></li>
+					<li><a href="visualization1.html">Distribuição de Candidatos por Estado</a></li>
+					<li><a href="visualization2.html">Distribuição de Candidatos por Cor da Pele</a></li>
+				</ul>
+			</nav>
+		<h2>Visualização 1: Distribuição do Perfil Social - por Estado</h2>
+		<h3>Clique sobre um dos anos abaixo:</h3>
 		<p id="year">2014</p>
 		<p id="year">2016</p>
 
@@ -124,14 +117,12 @@
 			<div class="square"id="norte"></div>Norte
 		</div>
 
+
 		<script type="text/javascript">
 
 		//definindo os dados
 		var dataset;
-		draw();
-
-
-//		}
+		montaGraficoEstados();
 
 		</script>
 

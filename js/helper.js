@@ -1,30 +1,37 @@
-function atualizaGraficoEstado(padding,w,h){
-	//seleciona o ano e gera os circulos
-	d3.selectAll("#year")
-	.on("click", function() {
-		d3.select(".chart").selectAll(".axis").remove();
-		d3.json("dados/" + $(this).html() + ".json", function(error,data) {
-			if (error) { //If error is not null, something went wrong.
-				console.log(error); //Log the error.
-			}
-			else { //If no error, the file loaded correctly. Yay!
-				//console.log(data); //Log the data.
-				dataset = data;
+function montaGraficoEstados(){
 
-				var rScale =defineEscalaRaioEstados(data);
-				var xScale =defineEscalaXEstados(data,padding,w);
-				var yScale =defineEscalaY(data,padding,h);
+  //largura e altura
+  var w = 1500;
+  var h = 400;
 
-        constroiEixos(xScale,yScale,padding,h,w);
+  //padding
+  var padding = 90;
 
-				constroiCirculosEstados(xScale,yScale,rScale);
+  configuraGrafico(w,h);
 
-					}//fecha else
-			});
-		});
+  //reage ao clique em algum ano
+  atualizaGraficoEstado(padding,w,h);
+
+}
+
+function montaGraficoCorPele(){
+
+  //largura e altura
+  var w = 1500;
+  var h = 400;
+
+  //padding
+  var padding = 90;
+
+  configuraGrafico(w,h);
+
+  //reage ao clique em algum ano
+  atualizaGraficoCorPele(padding,w,h);
+
 }
 
 
+//funcao construcao inicial grafico
 function configuraGrafico(w,h){
 
 	//criando o elemento svg
@@ -36,6 +43,68 @@ function configuraGrafico(w,h){
   return;
 }
 
+//-----------------------------------------funcoes atualizacao grafico estado
+
+function atualizaGraficoEstado(padding,w,h){
+	//seleciona o ano e gera os circulos
+	d3.selectAll("#year")
+	.on("click", function() {
+		d3.select(".chart").selectAll(".axis").remove();
+		d3.json("dados/" + $(this).html() + ".json", function(error,data) {
+			if (error) { //If error is not null, something went wrong.
+				console.log(error); //Log the error.
+			}
+			else { //If no error, the file loaded correctly. Yay!
+				//console.log(data); //Log the data.
+	       refrescaGraficoEstado(data, padding,w,h);
+
+					}//fecha else
+			});
+		});
+}
+
+function refrescaGraficoEstado(data, padding,w,h){
+  dataset = data;
+
+  var rScale =defineEscalaRaioEstados(data);
+  var xScale =defineEscalaXEstados(data,padding,w);
+  var yScale =defineEscalaY(data,padding,h);
+
+  constroiEixos(xScale,yScale,padding,h,w);
+
+  constroiCirculosEstados(xScale,yScale,rScale);
+}
+
+//----------------------------------------------funcoes atualiza grafico corpele
+
+function atualizaGraficoCorPele(padding,w,h){
+	//seleciona o ano e gera os circulos
+	d3.selectAll("#yearCorPele")
+	.on("click", function() {
+		d3.select(".chart").selectAll(".axis").remove();
+		d3.json("dados/" + $(this).html() + ".json", function(error,data) {
+			if (error) { //If error is not null, something went wrong.
+				console.log(error); //Log the error.
+			}
+			else { //If no error, the file loaded correctly. Yay!
+				//console.log(data); //Log the data.
+	       refrescaGraficoCorPele(data, padding,w,h);
+				}//fecha else
+			});
+		});
+}
+
+function refrescaGraficoCorPele(data, padding,w,h){
+  dataset = data;
+
+  var rScale =defineEscalaRaioCorPele(data);
+  var xScale =defineEscalaXCorPele(data,padding,w);
+  var yScale =defineEscalaY(data,padding,h);
+
+  constroiEixos(xScale,yScale,padding,h,w);
+
+  constroiCirculosCorPele(xScale,yScale,rScale);
+}
 //---------------------------------------------------------------------------
 //funcoes escalas
 

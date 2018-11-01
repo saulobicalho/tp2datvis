@@ -5,6 +5,8 @@
 		<title>Visualização 2</title>
 		<link rel="stylesheet" type="text/css" href="css/estilos.css">
 		<script type = "text/javascript" src="d3/d3.v3.min.js"></script>
+		<script src="js/helper.js" charset="utf-8"></script>
+		<script src="dados" charset="utf-8"></script>
 		<style>
 			.axis path,
 			.axis line {
@@ -30,65 +32,24 @@
 				stroke-width: 5;
 			}
 		</style>
-		<script>
 
-
-			function drawSkin(){
-
-				//largura e altura
-				var w = 1700;
-				var h = 400;
-
-				//padding
-				var padding = 90;
-
-				//criando o elemento svg
-				d3.select(".chart")
-					.attr("width", w)
-					.attr("height", h)
-					.attr("font-family", "sans-serif")
-					.attr("font-size", "11px")
-
-
-					//seleciona o ano e gera os circulos
-					d3.selectAll("#year")
-					.on("click", function() {
-						//Do something mundane and annoying on click
-						//alert($(this).html());
-						d3.select(".chart").selectAll(".axis").remove();
-						d3.json($(this).html() + ".json", function(error,data) {
-							if (error) { //If error is not null, something went wrong.
-								console.log(error); //Log the error.
-							}
-							else { //If no error, the file loaded correctly. Yay!
-								//console.log(data); //Log the data.
-								dataset = data;
-
-								//define escala do raio
-								var rScale = defineEscalaRaioCorPele(data);
-
-
-									var xScale =defineEscalaXCorPele(data,padding,w);
-									var yScale =defineEscalaY(data,padding,h);
-
-									constroiEixoX(xScale,padding,h,w);
-									constroiEixoY(yScale,padding,h);
-									constroiCirculosCorPele(xScale,yScale,rScale);
-								}//fecha else
-						});
-					});
-
-
-				}
-
-		</script>
 	</head>
 	<body>
+		<main>
+      <h1 class="titulo-principal">Trabalho Prático de Visualização de Dados</h1>
+      <p>Este trabalho está dividido em duas Visualizações diferentes. Por favor escolha uma das visualizações possíveis clicando sobre a mesma, abaixo: </p>
 
-		<h1>Visualização 2: Distribuição do Perfil Social - por Cor de Pele</h1>
-		<h2>Clique sobre um dos anos abaixo:</h2>
-		<p id="year">2014_</p>
-		<p id="year">2018_</p>
+      <nav>
+        <ul>
+          <li><a href="index.html">Apresentação</a></li>
+          <li><a href="visualization1.html">Distribuição de Candidatos por Estado</a></li>
+          <li><a href="visualization2.html">Distribuição de Candidatos por Cor da Pele</a></li>
+        </ul>
+      </nav>
+		<h2>Visualização 2: Distribuição do Perfil Social - por Cor de Pele</h2>
+		<h3>Clique sobre um dos anos abaixo:</h3>
+		<p id="yearCorPele">2014_</p>
+		<p id="yearCorPele">2018_</p>
 
 		<svg class="chart">
 			<circle cx="50" cy="50" r="20" fill="#003366" />
@@ -115,7 +76,7 @@
 
 		//definindo os dados
 		var dataset;
-		drawSkin();
+		montaGraficoCorPele();
 
 		</script>
 
